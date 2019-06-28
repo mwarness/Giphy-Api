@@ -1,18 +1,18 @@
 
 
 
-var dogs = ["English bulldog", "Rottweiler", "French bulldog", "Boston terrier"];
+var myHeros = ["Borat", "Bruno", "Dr.Nira-Cain", "Cartman","Batman"];
 
 
 $("#search-box").click(function () {
     event.preventDefault();
     var search = $("#userSearch").val();
     console.log(search);
-    dogs.push(search);
-    console.log(dogs);
-    for (var i = 0; i < dogs.length; i++) {     // parsing with array.length
+    myHeros.push(search);
+    console.log(myHeros);
+    for (var i = 0; i < myHeros.length; i++) {     // parsing with array.length
 
-        $("#buttons").append("<button class = 'newButt' data-value= " + dogs[i] + " >" + dogs[i] + "</button>");
+        $("#buttons").append("<button class = 'newButt' data-value= " + myHeros[i] + " >" + myHeros[i] + "</button>");
 
 
 
@@ -38,19 +38,22 @@ $(document).on("click", ".newButt", function () {
         console.log(response);
         console.log(response.data[0].rating);
         for (var i = 0; i < response.data.length; i++) {     // parsing with array.length
-// looping
-console.log(response.data[i].images.fixed_height_still.url) 
-// fixed_height_still
-            $("#gifImages").append("<img class = 'addedGif' src=" + response.data[i].images.fixed_height_still.url +" >");
-    
-    
-    
+            // looping
+            console.log(response.data[i].images.fixed_height_still.url)
+            // fixed_height_still
+            $("#gifImages").append("<img class = 'addedGif' src=" + response.data[i].images.fixed_height_still.url + " >");
+
+
+
         }
 
     })
 
 });
 
+
+// toggle source attribute on images/ onclick toggle src att/ from still to looping/ images are dynamically generated meaning document onclick and listen for a class
+// add a flag for images as an attribute (animate) set to true if attribute animate = true src = looping / else src = fixed_
 
 
 
